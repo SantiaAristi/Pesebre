@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armemos el Pesebre de Navidad - Escuela Didáctica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="DeleteScroll overflow">
+    <audio src="audio/Audio_intro.mp3" class="intro"></audio>
+    <audio src="audio/Audio_baltazar.mp3" class="audioBaltazar"></audio>
+    <audio src="audio/Audio_correcta.mp3" class="audioCorrecta"></audio>
+    <audio src="audio/Audio_final.mp3" class="audioFinal"></audio>
+    <audio src="audio/Audio_gaspar.mp3" class="audioGaspar"></audio>
+    <audio src="audio/Audio_incorrecta.mp3" class="audioIncorrecta"></audio>
+    <audio src="audio/Audio_jesus.mp3" class="audioJesus"></audio>
+    <audio src="audio/Audio_jose.mp3" class="audioJose"></audio>
+    <audio src="audio/Audio_maria.mp3" class="audioMaria"></audio>
+    <audio src="audio/Audio_melchor.mp3" class="audioMelchor"></audio>
+    <audio src="audio/Audio_mula.mp3" class="audioMula"></audio>
+    <audio src="audio/Audio_pastor.mp3" class="audioPastor"></audio>
+    <!-- Static header -->
+    <header>
+        <div class="imageContainer">
+            <img src="imagenes/logoEscuelDidactica.png" alt="image" class="logoEscuelaDidactica"> <!-- Image logo -->
+        </div>
+        <div class="textContainer">
+            <h1 class="textContainer-title">Armemos el Pesebre de Navidad</h1> <!-- Title introduction of header -->
+            <p class="textContainer-paragraph">Como es tradición cada diciembre armamos el pesebre para esperar la llegada del Niño Dios. Presiona cada tarjeta para descubrir un personaje, concéntrate y encuentra su pareja, así revelarás un personaje en el pesebre y descubrirás un dato curioso sobre esta tradición de navidad.</p> <!-- Paragraph introduction of header -->
+        </div>
+    </header>
+
+
+    <!-- Card container -->
+    <div class="Container">
+        <div class="verticalIcons">
+            <a href="#"><img src="imagenes/sharedTwitter.png" alt="image"></a> <!-- Twitter icon -->
+            <a href="#"><img src="imagenes/sharedFacebook.png" alt="image"></a> <!-- Facebook icon -->
+            <a href="#"><img src="imagenes/sharedLinkedin.png" alt="image"></a> <!-- Linkedin icon -->
+            <a href="#"><img src="imagenes/shared.png" alt="image"></a> <!-- Link -->
+        </div>
+        <div class="cardContainer"></div>
+    </div>
+
+    <!-- Modal introduction -->
+    <div class="backgroundModal"></div>
+    <div class="containerIntro">
+        <div class="imageIntro">
+            <img src="imagenes/modal-intro.png" alt="image" class="imageIntro-image"> <!-- Logo window modal -->
+            <div class="buttonIntro"><button class="beginButton">Comenzar</button></div> <!-- Button 'Comenzar' -->
+        </div>
+    </div>
+
+    <!-- modal puzzle -->
+    <div class="grandpaContainerPop grandpaHidden">
+        <div class="containerPop">
+            <div class="containerPuzzle">
+                <div class="containerImage">
+                    <img src="imagenes/escena-pesebre.png" alt="image" class="pesebre">
+                    <img src="imagenes/baltazar.png" alt="image" class="image-baltazar">
+                    <img src="imagenes/melchor.png" alt="image" class="image-melchor">
+                    <img src="imagenes/gaspar.png" alt="image" class="image-gaspar">
+                    <img src="imagenes/maria.png" alt="image" class="image-maria">
+                    <img src="imagenes/jose.png" alt="image" class="image-jose">
+                    <img src="imagenes/jesus.png" alt="image" class="image-jesus">
+                    <img src="imagenes/mula-buey.png" alt="image" class="image-mula">
+                    <img src="imagenes/pastor.png" alt="image" class="image-pastor">
+                </div> <!-- scene image -->
+                <div class="containerText">
+                    <div class="containerDecoration">
+                        <img src="imagenes/bola.png" alt="image" class="ball"> <!-- ball image -->
+                        <img src="imagenes/cinta.png" alt="image" class="tape"> <!-- tape image -->
+                        <img src="imagenes/copo.png" alt="image" class="flake1"> <!-- flake image -->
+                        <img src="imagenes/copo.png" alt="image" class="flake2"> <!-- flake image -->
+                    </div>
+                    <h1 class="titleModal">Sabias que...</h1> <!--Title 'sabias que'-->
+                    <p class="paragraphModal"></p>  <!-- Information -->
+                    <button class="buttonModal">Continuar</button>  <!-- Button 'Continuar' -->
+                </div>
+                <!-- Fotter modal end -->
+                <div class="containerIconsGameOver hidden">
+                    <div class="iconsGameOver">
+                        <p>Compartir</p>
+                        <a href="#"><img src="imagenes/twitter.svg" alt="image" class="twitter"></a>
+                        <a href="#"><img src="imagenes/facebook.svg" alt="image" class="facebook"></a>
+                        <a href="#"><img src="imagenes/linkedin.svg" alt="image" class="linkedin"></a>
+                        <a href="#"><img src="imagenes/link.svg" alt="image" class="link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Static footer -->
+    <footer>
+        <div class="phraseContainer">
+            Somos <img src="imagenes/logoEscuelDidactica.png" alt="image" class="logoEscuelaDidactica"> y te ayudamos a transformar el aprendizaje en experiencia memorables. <!-- text about 'Escuela Didactica' -->
+        </div>
+
+        <div class="iconsContainer">
+            <p class="iconsContainer-text">Síguenos</p> <!-- Text 'síguenos' -->
+            <a href="#" class="iconsContainer-icons"><img src="imagenes/facebookED.png" alt="image"  class="iconsContainer-icons-image"></a> <!-- Facebook icon -->
+            <a href="#" class="iconsContainer-icons"><img src="imagenes/instagramED.png" alt="image" class="iconsContainer-icons-image"></a> <!-- Instagram icon -->
+            <a href="#" class="iconsContainer-icons"><img src="imagenes/linkedinED.png" alt="image" class="iconsContainer-icons-image"></a> <!-- Linkedin icon -->
+            <a href="#" class="iconsContainer-button">Contáctanos</a> <!-- Button 'Contactanos' -->
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

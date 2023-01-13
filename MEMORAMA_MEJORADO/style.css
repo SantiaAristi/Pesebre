@@ -1,0 +1,1060 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 125vh;
+    background-image: url('imagenes/estrellas-bg.png'), url('imagenes/background.png');
+    background-color: #f2d272;
+    background-size: auto 300px cover;
+    background-repeat: repeat-x, no-repeat;
+}
+
+.overflow{
+    overflow: hidden;
+}
+
+/*START CSS HEADER */
+
+    /*This is header*/
+header{
+    position: absolute;
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    top: 0;
+
+}
+
+    /*This is the image container for header*/
+header .imageContainer{
+    width: 30%;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+    /*This is the logo of header*/
+header .imageContainer .logoEscuelaDidactica{
+    width: 100%;
+    height: 50%;
+}
+
+    /*This is the text container for header*/
+header .textContainer{
+    width: 70%;
+    padding: 10px;
+    background-color: #e6f9f4;
+}
+
+    /*This is the title of header*/
+header .textContainer .textContainer-title{
+    width: 100%;
+    font-size: 200%;
+    font-family: 'Arlon';
+    color: #5fa3a5;
+}
+
+    /*This is the paragraph of header*/
+header .textContainer .textContainer-paragraph{
+    width: 100%;
+}
+
+/*END CSS HEADER */
+
+/*START CSS CARD CONTAINER */
+
+    /*This is the middle space for cards and vertical logos*/
+.Container{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 150px;
+
+}
+
+    /*This is the icon container for vertical logos*/
+.Container .verticalIcons{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    margin-top: 200px;
+    margin-left: -95%;
+}
+
+/*This is the card container for cards*/
+.Container .cardContainer{
+    width: 780px;
+    display: inline-flex;
+    flex-flow: row wrap;
+    margin-left: 6%;
+    position: relative;
+}
+
+    /*This is contanier for cards*/
+.Container .cardContainer .grandpaContainer{
+    width: 170px;
+    height: 25%;
+    perspective: 1000px;
+}
+
+    /*That contains transitions of cards*/
+.Container .cardContainer .grandpaContainer .parentContainer{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+    /*This is the back-card*/
+.Container .cardContainer .grandpaContainer .parentContainer .child2{
+    width: 100%;
+    height: 100%;
+    margin-top: -107%;
+    transform: rotateY(180deg);
+}
+
+    /*This is the image of back-card*/
+.Container .cardContainer .grandpaContainer .parentContainer .child2 img{
+    width: 100%;
+    height: 100%;
+}
+
+
+    /*That hidde the back-face of the card*/
+.Container .cardContainer .grandpaContainer .parentContainer .child1, .Container .cardContainer .grandpaContainer .parentContainer .child2{
+    backface-visibility: hidden;
+}
+
+    /*This is the rotation for card*/
+.rotation{
+    transform: rotateY(180deg);
+}
+
+    /*This is the image of the front-face card*/
+.Container .cardContainer .grandpaContainer .parentContainer .child1 img{
+    width: 100%;
+    height: 100%;
+}
+
+/*END CSS CARD CONTAINER */
+
+/*START CSS MODAL INTRODUCTION*/
+
+    /*This is the background modal*/
+.backgroundModal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1, 0, 0, 0.5);
+    z-index: 1;
+    overflow: hidden;
+
+}
+
+    /*This is the modal container*/
+.containerIntro{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 40vw;
+
+}
+
+    /*This is image container*/
+.containerIntro .imageIntro{
+    width: 1000px;
+    position: absolute;
+    animation: rebound 1.5s 0s forwards ease-in;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+    /*This is logo of 'Escuela didactica'*/
+.containerIntro .imageIntro .imageIntro-image{
+    position: relative;
+    width: 50%;
+    height: 50%;
+}
+
+    /*This is button container*/
+.containerIntro .imageIntro .buttonIntro{
+    margin-left: 18%;
+    position: relative;
+    width: 500px;
+    height: 50px;
+    animation: rebound-button 1.5s 0s forwards ease-in;
+    visibility: hidden;
+    opacity: 0;
+}
+
+    /*This is button for modal*/
+.containerIntro .buttonIntro .beginButton{
+    width: 25%;
+    height: 100%;
+    font-size: 120%;
+    background-color: #ed921f;
+    border: 2px solid #ed921f;
+    border-radius: 20px;
+    box-shadow: 1px 7px 0 0 #d77c0e;
+    color: #fff;
+    font-weight: bold;
+    transition-property: transform, box-shadow;
+    transition-duration: 0.5s;
+}
+
+    /*Action for button*/
+.containerIntro .buttonIntro .beginButton:hover{
+    transform: translateY(5px);
+    box-shadow: 1px 3px 0 0 #d77c0e;
+    cursor: pointer;
+}
+
+/*END CSS MODAL INTRODUCTION*/
+
+/*START CSS MODAL PESEBRE*/
+
+    /*This is background modal*/
+.grandpaContainerPop{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(1, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.grandpaHidden{
+    display: none; /*-------------------------------------------------------------------------*/
+}
+
+    /*This is puzzle container*/
+.grandpaContainerPop .containerPop{
+    position: absolute;
+    height: 400px;
+    width: 900px;
+    border: 5px solid #ffc042;
+    background-color: #ffc042;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
+    /*This is container pesebre image and text*/
+.grandpaContainerPop .containerPop .containerPuzzle{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #e6ce76;
+    background-image: url('imagenes/estrellas.png');
+    background-size: cover;
+    border: 5px solid #e6ce76;
+    display: flex;
+    flex-flow: row wrap;
+    overflow: clip;
+    overflow-clip-margin: 10px;
+}
+
+    /*This is container text*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText{
+    width: 40%;
+    height: 100%;
+    position: relative;
+    border-radius: 0 20px 20px 0;
+}
+
+    /*This modify all children*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText *{
+    position: absolute;
+}
+
+    /*This is ball image*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText .containerDecoration .ball{
+    width: 100px;
+    height: 90px;
+    left: 260px;
+}
+
+    /*This is tape image*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText .containerDecoration .tape{
+    width: 70px;
+    height: 40px;
+    left: 15px;
+    top: 20px;
+}
+
+    /*This is flake image*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText .containerDecoration .flake1{
+    width: 30px;
+    height: 30px;
+    top: 350px;
+    left: 10px;
+    animation: rotate 4s 0s ease-in-out infinite;
+}
+
+    /*This is flake image*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText .containerDecoration .flake2{
+    width: 30px;
+    height: 30px;
+    top: 350px;
+    left: 310px;
+    animation: rotate 4s 0s ease-in-out infinite;
+}
+
+    /*This is title 'sabias que...'*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText h1{
+    top: 40px;
+    left: 100px;
+    font-weight: bold;
+    color: #bc3d2e;
+}
+
+    /*This is paragraph on the right*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText p{
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    top: 120px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+    /*This is button 'continuar'*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText button{
+    width: 130px;
+    height: 35px;
+    font-size: 120%;
+    top: 300px;
+    left: 113px;
+    background-color: #ed921f;
+    border: 2px solid #ed921f;
+    border-radius: 20px;
+    box-shadow: 1px 7px 0 0 #d77c0e;
+    color: #fff;
+    font-weight: bold;
+    transition-property: transform, box-shadow;
+    transition-duration: 0.5s;
+    z-index: 5;
+}
+
+    /*Animation of the button*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText button:hover{
+    transform: translateY(5px);
+    box-shadow: 1px 3px 0 0 #d77c0e;
+    cursor: pointer;
+}
+
+    /*This is the container image*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage{
+    width: 60%;
+    height: 100%;
+    position: relative;
+}
+
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage img{
+    position: absolute;
+}
+
+    /*This is image*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .pesebre{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+}
+
+    /*This is baltazar cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-baltazar{
+    height: 220px;
+    width: 100px;
+    left: 130px;
+    top: 50px;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is melchor cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-melchor{
+    height: 200px;
+    width: 160px;
+    left: 245px;
+    top: 150px;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is gaspar cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-gaspar{
+    height: 250px;
+    width: 125px;
+    left: 200px;
+    top: 57px;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is maria cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-maria{
+    bottom: 0;
+    height: 210px;
+    width: 150px;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is jose cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-jose{
+    height: 250px;
+    width: 100px;
+    bottom: 45px;
+    left: 12px;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is jesus cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-jesus{
+    height: 120px;
+    width: 115px;
+    bottom: 5px;
+    left: 135px;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is mula cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-mula{
+    right: 0;
+    bottom: 0;
+    height: 225px;
+    width: 105px;
+    z-index: 1;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is pastor cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-pastor{
+    height: 255px;
+    width: 115px;
+    right: 50px;
+    top: 75px;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is Animation vibration for image cover*/
+.vibration{
+    animation: vibration 2s 0.7s forwards ease-in-out;
+    transform-origin: 50% 4px;   
+}
+
+    /*This is Animation fall for image cover*/
+.fall{
+    animation: fall 2s 0.7s forwards ease-in-out;
+}
+
+/*END CSS MODAL PESEBRE*/
+
+/*START CSS FOOTER MODAL*/
+
+.containerIconsGameOver{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.containerIconsGameOver .iconsGameOver{
+    width: 900px;
+    height: 80px;
+    position: absolute;
+    background-color: #07584e;
+    top: 380px;
+    right: 1px;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.containerIconsGameOver .iconsGameOver img{
+    width: 50px;
+    height: 50px;
+}
+
+.containerIconsGameOver .iconsGameOver p{
+    color: #fff;
+}
+
+
+/*END CSS FOOTER MODAL*/
+
+/*START CSS FOOTER */
+
+    /*This is footer*/
+footer{
+    background-color: #e6f9f4;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
+}
+
+    /*This is text container left*/
+footer .phraseContainer{
+    width: 65%;
+}
+
+footer .phraseContainer .logoEscuelaDidactica{
+    width: 25%;
+    height: 60%;
+    vertical-align: middle;
+}
+
+    /*This is the icon container on right*/
+footer .iconsContainer{
+    width: 30%;
+    display: inline-flex;
+    right: 10px;
+    display: flex;
+    position: absolute;
+    justify-content: end;
+} 
+
+
+    /*This is text container for phrase 'Síguenos'*/
+footer .iconsContainer .iconsContainer-text{
+    margin-top: 5px;
+}
+
+    /*This is the button 'Contáctanos'*/
+footer .iconsContainer .iconsContainer-button{
+    border: 1px solid #79b5b5;
+    height: 30%;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #79b5b5;
+    text-decoration: none;
+    color: #fff;
+    margin-top: 5px;
+    margin-left: 10px;
+    padding: 1px;
+}
+
+    /*This is the icons container on right*/
+footer .iconsContainer .iconsContainer-icons{
+    width: 30px;
+    height: 50px;
+    margin-left: 5px;
+}
+
+    /*This is image for social media on footer right*/
+footer .iconsContainer .iconsContainer-icons .iconsContainer-icons-image{
+    width: 30px;
+    height: 25px;
+    margin-top: 5px;
+}
+
+    /*Opacity of icons*/
+footer .iconsContainer a{
+    opacity: 0.5;
+}
+
+    /*Actions for opacity*/
+footer .iconsContainer a:hover{
+    opacity: 1;
+}
+    /*END CSS FOOTER */
+
+
+    /*MODAL INTRO ANIMATION*/
+
+@keyframes rebound-button{
+    0%{
+        width: 510px;
+        height: 60px;
+    }
+
+    20%{
+        width: 500px;
+        height: 50px;
+    }
+
+    40%{
+        width: 510px;
+        height: 60px;
+    }
+
+    60%{width: 500px;
+        height: 50px;
+    }
+
+    80%{
+        width: 510px;
+        height: 60px;
+    }
+
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes rebound{
+    0%{
+        width: 1050px;;
+    }
+
+    20%{
+        width: 1000px;;
+    }
+
+    40%{
+        width: 1050px;;
+    }
+
+    60%{
+        width: 1000px;;
+    }
+
+    80%{
+        width: 1050px;;
+    }
+
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+/*Animation for flakes*/
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
+
+/*Animation for dicover pesebre*/
+
+@keyframes vibration{
+
+    10%{
+        transform: rotate(10deg);
+    }
+
+    20%{
+        transform: rotate(-10deg);
+    }
+
+    30%{
+        transform: rotate(10deg);
+    }
+
+    40%{
+        transform: rotate(-10deg);
+    }
+
+    50%{
+        transform: rotate(10deg);
+    }
+
+    60%{
+        transform: rotate(-5deg);
+    }
+
+    70%{
+        transform: rotate(5deg);
+    }
+
+    80%{
+        transform: rotate(-3deg);
+    }
+
+    90%{
+        transform: rotate(3deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes fall{
+    0%{
+        transform: translateY(0px);
+    }
+
+    100%{
+        transform: translateY(1000px);
+    }
+}
+
+    /*Class for hidde the modal*/
+.hidden{
+    display: none;
+}
+
+@media (max-width: 750px){
+    /*This is the middle space for cards and vertical logos*/
+
+    body{
+        min-height: 125vh;
+        background-image: url('imagenes/estrellas-bg.png'), url('imagenes/background.png');
+        background-color: #f2d272;
+        background-size: auto 300px cover;
+        background-repeat: repeat-x, no-repeat;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    header{
+        display: flex;
+        flex-flow: column ;
+        justify-content: space-between;
+        top: 0;
+    }
+
+    header .imageContainer{
+        height: 40%;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        background-color: #fff;
+    }
+    
+        /*This is the logo of header*/
+    header .imageContainer .logoEscuelaDidactica{
+        width: 50%;
+        height: 50%;
+    }
+    
+        /*This is the text container for header*/
+    header .textContainer{
+        width: 100%;
+        height: 60%;
+        padding: 10px;
+        background-color: #e6f9f4;
+    }
+    
+        /*This is the title of header*/
+    header .textContainer .textContainer-title{
+        width: 100%;
+        font-size: 200%;
+        font-family: 'Arlon';
+        color: #5fa3a5;
+    }
+
+        /*This is the paragraph of header*/
+header .textContainer .textContainer-paragraph{
+    font-size: 80%;
+    width: 100%;
+}
+
+
+/*------------------ middle zone ----------------------------*/
+
+.Container{
+    top: 200px;
+   width: 100%;
+   display: flex;
+   flex-flow: row wrap;
+   margin-top: 150px;
+   height: 60%;
+
+}
+
+   /*This is the icon container for vertical logos*/
+   .Container .verticalIcons{
+       display: none;
+   }
+
+/*This is the card container for cards*/
+.Container .cardContainer{
+    width: 100%;
+    display: inline-flex;
+    flex-flow: row wrap;
+    margin-left: 6%;
+    position: relative;
+}
+
+.Container .cardContainer .grandpaContainer{
+    top: 500px;
+    width: 23%;
+    height: 25%;
+    perspective: 1000px;
+}
+
+    /*That contains transitions of cards*/
+    .Container .cardContainer .grandpaContainer .parentContainer{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+        transform-style: preserve-3d;
+    }
+
+
+    /*This is the back-card*/
+    .Container .cardContainer .grandpaContainer .parentContainer .child2{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin-top: -107%;
+        transform: rotateY(180deg);
+    }
+
+        /*This is the image of back-card*/
+.Container .cardContainer .grandpaContainer .parentContainer .child2 img{
+    width: 100%;
+    height: 100%;
+}
+
+/*-----------------footer----------------------------*/
+
+footer{
+    background-color: #e6f9f4;
+    display: flex;
+    flex-flow: column;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 30px;
+    align-items: center;
+}
+
+    /*This is text container left*/
+footer .phraseContainer{
+    display: none;
+}
+
+
+footer .iconsContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    float: left;
+    position: absolute;
+} 
+
+
+}
+
+@media (max-width: 850px){
+       /*This is image container*/
+.containerIntro .imageIntro{
+
+    width: 100vw;
+    position: absolute;
+    animation: rebound 1.5s 0s forwards ease-in;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+    /*This is button container*/
+    .containerIntro .imageIntro .buttonIntro{
+        margin-left: 13%;
+        position: relative;
+        width: 100vw;
+        height: 5vh;
+        animation: rebound-button 1.5s 0s forwards ease-in;
+        visibility: hidden;
+        opacity: 0;
+
+    }
+
+        /*This is button for modal*/
+.containerIntro .buttonIntro .beginButton{
+    width: 25%;
+    height: 100%;
+    font-size: 80%;
+    background-color: #ed921f;
+    border: 2px solid #ed921f;
+    border-radius: 20px;
+    box-shadow: 1px 7px 0 0 #d77c0e;
+    color: #fff;
+    font-weight: bold;
+    transition-property: transform, box-shadow;
+    transition-duration: 0.5s;
+}
+}
+
+@media (max-width: 920px){
+
+
+        /*This is puzzle container*/
+.grandpaContainerPop .containerPop{
+    position: absolute;
+    height: 600px;
+    width: 400px;
+    border: 5px solid #ffc042;
+    background-color: #ffc042;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
+    /*This is container pesebre image and text*/
+    .grandpaContainerPop .containerPop .containerPuzzle{
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        background-color: #e6ce76;
+        background-image: url('imagenes/estrellas.png');
+        background-size: cover;
+        border: 5px solid #e6ce76;
+        display: flex;
+        flex-flow: column;
+        overflow: clip;
+        overflow-clip-margin: 10px;
+    }
+
+        /*This is container text*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 0 20px 20px 0;
+}
+
+
+        /*This is the container image*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage img{
+    position: absolute;
+}
+
+    /*This is image*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .pesebre{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+}
+
+    /*This is baltazar cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-baltazar{
+    height: 70%;
+    width: 20%;
+    transition-property: top;
+    transition-duration: 5s;
+    position: absolute;
+}
+
+    /*This is melchor cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-melchor{
+    height: 60%;
+    width: 35%;
+    bottom: -10px;
+    top: 100px;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is gaspar cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-gaspar{
+    height: 250px;
+    width: 125px;
+    left: 200px;
+    top: 57px;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is maria cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-maria{
+    bottom: 0;
+    height: 60%;
+    width: 30%;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is jose cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-jose{
+    height: 70%;
+    width: 20%;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is jesus cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-jesus{
+    height: 40%;
+    width: 20%;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is mula cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-mula{
+    height: 225px;
+    width: 105px;
+    z-index: 100;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is pastor cover*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-pastor{
+    height: 255px;
+    width: 115px;
+    right: 50px;
+    top: 75px;
+    transition-property: top;
+    transition-duration: 5s;
+}
+
+    /*This is button 'continuar'*/
+    .grandpaContainerPop .containerPop .containerPuzzle .containerText button{
+        width: 130px;
+        height: 35px;
+        font-size: 120%;
+        top: 250px;
+        left: 113px;
+        background-color: #ed921f;
+        border: 2px solid #ed921f;
+        border-radius: 20px;
+        box-shadow: 1px 7px 0 0 #d77c0e;
+        color: #fff;
+        font-weight: bold;
+        transition-property: transform, box-shadow;
+        transition-duration: 0.5s;
+        z-index: 5;
+    }
+}
