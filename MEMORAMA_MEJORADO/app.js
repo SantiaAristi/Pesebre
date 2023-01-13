@@ -1,7 +1,12 @@
+//Author: Ing(c) Santiago Aristizabal Sepulveda
+//Primer Bootcamp "íscina-42" UTP sobre fullstack
+//Date: 2023-01-13
+//Technologic University of Pereira
+
 let cardContainer = document.querySelector('.cardContainer'); // card container
 generateCards(); // function that generate of cards
 
-let children = Array.from(document.querySelectorAll('.child2'));  // back-face of card
+let children = Array.from(document.querySelectorAll('.child2'));  // back-face of card, array de las cartas
 let parentContainer = Array.from(document.querySelectorAll('.parentContainer')); // This contains back and front face of card
 let arrayImage = ['imagenes/parejas-001.png','imagenes/parejas-001.png','imagenes/parejas-002.png', 'imagenes/parejas-002.png','imagenes/parejas-003.png','imagenes/parejas-003.png','imagenes/parejas-004.png','imagenes/parejas-004.png','imagenes/parejas-005.png','imagenes/parejas-005.png','imagenes/parejas-006.png','imagenes/parejas-006.png','imagenes/parejas-007.png','imagenes/parejas-007.png','imagenes/parejas-008.png','imagenes/parejas-008.png']; // directions of images for cards
 let arrayShuffle = []; // array for card shuffle
@@ -23,13 +28,14 @@ let buttonModalCover = document.querySelector('.buttonModal'); // button of pese
 let paragraphModal = document.querySelector('.paragraphModal'); // paragraph of pesebre modal
 let footerModal = document.querySelector('.containerIconsGameOver'); // footer end modal
 let titleModal = document.querySelector('.grandpaContainerPop .containerPop .containerPuzzle .containerText h1');
-let reload = false;
+let reload = false; 
+let containerPop = document.querySelector('.grandpaContainerPop .containerPop');
 
 // game memorama
-parentContainer.forEach((card)=>{ 
+parentContainer.forEach((card)=>{ //Esta funcion permite controlar que tarjeta fue tocada, si la primera o la segunda carta y saber si ya fue abierta o si ya fue descubierta la pareja
   card.addEventListener('click',() =>{
-    if(block){   // se pregunta si block devuelve un true para saber si la carta ya fue elegida antes, ya que en el momento de seleccionar una carta se le a cambia el valor booleano a esta variable
-      if(clickCount){ //se usa de la misma manera que block
+    if(block){// sirve para bloquear el click y que no se pueda clikear otra mientras se voltean las cartas
+      if(clickCount){ // se pregunta si block devuelve un true para saber si la carta ya fue elegida antes, ya que en el momento de seleccionar una carta se le a cambia el valor booleano a esta variable
         if(!card.classList.contains('pair')){ //se ptregunta si la carta contiene la clase pair, ya que cuando se encuentra una pareja esas cartas reciben la clase pair
           functionClick1(card); //en caso de que no se haya abierto ya esa carta, se le permite seleccionarla
         }
@@ -38,16 +44,16 @@ parentContainer.forEach((card)=>{
               if(!card.classList.contains('pair')){//se pregunta para saber si ya no fue encontrada
                 functionClick2(card);//se llama a la funcion para dar el segundo click
                 setTimeout(() => {
-                  if(firstClass == secondClass){
-                    processComparing();
-                    let audioCorrecta = document.querySelector('.audioCorrecta');
-                    audioCorrecta.play();
+                  if(firstClass == secondClass){//estas dos variables contienen el trozo de javascript de la primera y segunda carta tocada y las compara para saber si son iguales
+                    processComparing();//llama a la funcion para cambiar las propiedades de las cartas
+                    let audioCorrecta = document.querySelector('.audioCorrecta');//toma el audio del html
+                    audioCorrecta.play();//reproduce el audio
                   }else{
-                      removeClass();
+                      removeClass();//en caso de que las dos cartas fueran diferentes se llama a la funcion removeClass para quitar las clases agregadas durante el proceso del juego, le quita la rotacion a las cartas y les quita el click
                   }
-                  block = !block;
+                  block = !block; //Desbloquea el pointer para iniciar una nueva interaccion
               },800);
-              clickCount = !clickCount;
+              clickCount = !clickCount; //Desbloquea los clicks para volver a iniciar una nueva interaccion de cartas
               }
 
           }
@@ -56,62 +62,85 @@ parentContainer.forEach((card)=>{
   })
 })
 
-
 // Event for modal pesebre button
 buttonModalCover.addEventListener('click', () => {
   if(!buttonModalCover.classList.contains('gameOver')){
     grandpaModal.classList.add('grandpaHidden');
     body.classList.remove('overflow');
-    audioCard.pause()
+    audioCard.pause() //Pausa el audio de la carta
   }else{
+
     if(!reload){
-      audioCard.stop();
+      audioCard.pause(); //Pausa el audio de la carta
       let endAudio = document.querySelector('.audioFinal');
-      endAudio.play();
-      footerModal.classList.remove('hidden');
+      endAudio.play(); //Reproduce el audio final al completar el memorama
+      footerModal.classList.remove('hidden'); //Hace visible el footer del modal final
       buttonModalCover.textContent = 'Repetir';
       paragraphModal.textContent = 'Y junto con la esperanza de la llegada del Niño Dios te deseamos de todo corazón que ese regalo que tanto has anhelado llegue a ti en esta navidad.'
-      titleModal.textContent = 'Armaste tu pesebre'
+      titleModal.textContent = 'Armaste tu pesebre';
+      titleModal.classList.add('center'); //Modifica la fuente del titulo del modal final
+      containerPop.classList.add('borderRadius'); //añade un borde redondeado al container
       reload = true;
+
     }else{
-      location.reload();
+
+      window.scroll(0,0); //Coordenadas del scroll
+      location.reload(); //Al momento de recargar la pagina, devuelve el scroll a la parte superior de la pantalla
     }
   }
 })
 
 // Event for modal intro button
 button.addEventListener('click', () => {
-  modal.classList.add('hidden');
-  body.classList.remove('overflow');
-  background.classList.add('hidden');
-  let audio = document.querySelector('.intro');
-  audio.play();
+  modal.classList.add('hidden'); //Oculta el modal de introduccion
+  body.classList.remove('overflow'); //Al ocultar el modal de introduccion, permite al usuario hacer scroll
+  background.classList.add('hidden'); //Quita el background del modal
+  let audio = document.querySelector('.intro'); 
+  audio.play(); //Reproduce el audio inicial
 })
 
 // function: removing class
 function removeClass(){
-  secondParent.classList.remove('rotation');
+  secondParent.classList.remove('rotation'); //Vuelve a la posicion inicial las figuras
   firstParent.classList.remove('rotation');
   firstParent.classList.remove('click');
   secondParent.classList.remove('click');
   let audioIncorrecta = document.querySelector('.audioIncorrecta')
-  audioIncorrecta.play();
+  audioIncorrecta.play(); //Reproduce el audio cuando la pareja es incorrecta
 }
 
 // function: processs for comparing pairs
+//Esta funcion se ejecuta solamente si se encuentra una pareja
 function processComparing(){
-  firstParent.classList.add('pair');
+  firstParent.classList.add('pair');  //Añade las clases a las cartas para identificar que se encontró la pareja
   secondParent.classList.add('pair');
-  countPairs++;
-  if(countPairs != 8){
-    body.classList.add('overflow');
+  countPairs++; //Aumenta la variable que cuenta el numero de parejas encontradas
+  if(countPairs != 8){ 
+    body.classList.add('overflow'); //Bloquea el scroll
+    window.scroll(0,0);
+    grandpaModal.classList.remove('grandpaHidden'); //Hace visible el modal que se despliega al encontrar una pareja
+    for(let i = 0; i < 8; i++){ //Se realiza una busqueda en el array de nombres para identificar el nombre de la pareja encontrada
+      if(firstParent.classList.contains(arrayNames[i])){ //Se busca el nombre de la clase en el array de nombres
+        audioCard = document.querySelector(arrayAudio[i]);  //Guarda en una variable el audio correspondiente de la pareja encontrada, el cual es buscado en el array de audios
+        audioCard.play(); //Reproduce el audio respectivo de la pareja encontrada
+        paragraphModal.textContent = arrayInformation[i]; //Busca en el array de las frases, la respectiva frase de la pareja encontrada
+        setTimeout(()=>{ //sleep
+          setTimeout(()=>{arrayCover[arrayNumber[i]].classList.add('hidden');},2000);
+          arrayCover[arrayNumber[i]].classList.add('fall'); //Despues de realizar la animcaion de la vibracion, realiza la animacion de la caida de la ficha 
+        },2000); 
+        arrayCover[arrayNumber[i]].classList.add('vibration'); //Primero genera la animacion de la vibracion
+      }
+    }
+
+  }else{  //Se ejecuta cuando se encuentra la ultima pareja
+    body.classList.add('overflow'); //Bloquea el scroll
     window.scroll(0,0)
     grandpaModal.classList.remove('grandpaHidden');
-    for(let i = 0; i < 8; i++){
+    for(let i = 0; i < 8; i++){ //Realiza el mismo proceso de buscar el audio y la frase respectiva de la pareja, para despues generar la animacion
       if(firstParent.classList.contains(arrayNames[i])){
         audioCard = document.querySelector(arrayAudio[i]);
-        audioCard.play();
-        paragraphModal.textContent = arrayInformation[i];
+        audioCard.play(); //Reproduce el audio respectivo de la pareja encontrada
+        paragraphModal.textContent = arrayInformation[i]; //Busca en el array de las frases, la respectiva frase de la pareja encontrada
         setTimeout(()=>{
           setTimeout(()=>{arrayCover[arrayNumber[i]].classList.add('hidden');},2000);
           arrayCover[arrayNumber[i]].classList.add('fall');
@@ -119,54 +148,39 @@ function processComparing(){
         arrayCover[arrayNumber[i]].classList.add('vibration');
       }
     }
-  }else{
-    body.classList.add('overflow');
-    window.scroll(0,0)
-    grandpaModal.classList.remove('grandpaHidden');
-    for(let i = 0; i < 8; i++){
-      if(firstParent.classList.contains(arrayNames[i])){
-        audioCard = document.querySelector(arrayAudio[i]);
-        audioCard.play();
-        paragraphModal.textContent = arrayInformation[i];
-        setTimeout(()=>{
-          setTimeout(()=>{arrayCover[arrayNumber[i]].classList.add('hidden');},2000);
-          arrayCover[arrayNumber[i]].classList.add('fall');
-        },2000);
-        arrayCover[arrayNumber[i]].classList.add('vibration');
-      }
-    }
-    buttonModalCover.classList.add('gameOver');
-    buttonModalCover.textContent = 'Finalizar';
+    buttonModalCover.classList.add('gameOver'); //El boton adquiere la clase para cambiar las propiedades del boton y desplegar el modal final
+    buttonModalCover.textContent = 'Finalizar'; //Modifica el texto del boton para finalizar el memorama
   }
 }
 
 // function: second click
 function functionClick2(card){
-  secondClass = Array.from(card.childNodes)[1].outerHTML;
-    secondParent = card;
-    card.classList.add('rotation');
-    block = !block;
+  secondClass = Array.from(card.childNodes)[1].outerHTML; //Copia la estructura del codigo html
+    secondParent = card; //Se guarda la segunda carta seleccionada en una variable
+    card.classList.add('rotation'); //Rota la carta
+    block = !block; //Bloquea el pointer mientras se realiza la comparacion de las cartas seleccionadas
 }
 
 // function: first click
 function functionClick1(card){
-  card.classList.add('rotation');
-  card.classList.add('click');
-  firstClass = Array.from(card.childNodes)[1].outerHTML;
-  firstParent = card;
-  clickCount = !clickCount;
+  card.classList.add('rotation'); //Gira la primera carta
+  card.classList.add('click'); //Clickea la primera carta
+  firstClass = Array.from(card.childNodes)[1].outerHTML; //Copia la estructura del codigo html
+  firstParent = card; //Se guarda la primera carta seleccionada en una variable
+  clickCount = !clickCount; //El clickCount pasa a ser falso
 }
 
 // function: insertion images in child2
 function insertImage(){
     let contador = 0;
     while(contador < 16){
-        let newImage = document.createElement('img');
-        newImage.setAttribute('src',arrayShuffle[contador]);
+        let newImage = document.createElement('img'); //Se crea la estructura html para una imagen
+        newImage.setAttribute('src',arrayShuffle[contador]); //Se asigna una figura del array que desordena las imagenes a la etiqueta de imagen
         newImage.setAttribute('Alt','image');
         children[contador].appendChild(newImage);
-        if('imagenes/parejas-001.png' == arrayShuffle[contador]){
-            children[contador].parentNode.classList.add('maria');
+
+        if('imagenes/parejas-001.png' == arrayShuffle[contador]){ //Se verifica para cada figura respecto al array de las imagenes y de esta manera se agrega la clase correspondiente de la figura asignada
+            children[contador].parentNode.classList.add('maria'); 
           }else if('imagenes/parejas-002.png' == arrayShuffle[contador]){
             children[contador].parentNode.classList.add('jose');
           }else if('imagenes/parejas-003.png' == arrayShuffle[contador]){
@@ -189,19 +203,19 @@ function insertImage(){
 // function: loop of random image
 function randomImage(){
     let contador = 0;
-    while(contador < 16){
-        let random = Math.trunc(Math.random()*16);
+    while(contador < 16){ //El ciclo será falso una vez se haya desordenado todo el arreglo original, ya que el contador solo aumenta cuando una imagen es desordenada
+        let random = Math.trunc(Math.random()*16); //genera un numero aleatorio del 0 al 15
         if(arrayImage[random] != 0){
-          contador++;
-          arrayShuffle.push(arrayImage[random]);
-          arrayImage[random] = 0;
+          contador++; 
+          arrayShuffle.push(arrayImage[random]); //Agrega una imagen aleatorio del arreglo original a la cola del arreglo desordenado
+          arrayImage[random] = 0; //Agrega un 0 en la posicion del arreglo desordenado
         } 
     }
 }
 
 // function: generation of cards
 function generateCards(){
-    for(let i = 0; i < 16; i++){
+    for(let i = 0; i < 16; i++){ //Esta funcion genera toda la estructura donde se agregaran las cartas
         let grandpa = document.createElement('div');
         grandpa.classList.add('grandpaContainer');
         let parent = document.createElement('div');
@@ -221,3 +235,8 @@ function generateCards(){
         cardContainer.appendChild(grandpa);
     }
 } 
+
+window.onbeforeunload = function () { //Al momento de recargar la pagina, devuelve el scroll a la posicion 0
+  window.scrollTo(0, 0);
+}
+

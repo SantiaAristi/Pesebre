@@ -1,10 +1,15 @@
-*{
+/*Author: Ing(c) Santiago Aristizabal Sepulveda
+Primer Bootcamp "íscina-42" UTP sobre fullstack
+Date: 2023-01-13
+Technologic University of Pereira*/
+
+*{  /*Aplica estas propiedades a todo el documento*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body{ /*Aplica estas propiedades a todo el cuerpo del body*/
     min-height: 125vh;
     background-image: url('imagenes/estrellas-bg.png'), url('imagenes/background.png');
     background-color: #f2d272;
@@ -12,54 +17,55 @@ body{
     background-repeat: repeat-x, no-repeat;
 }
 
-.overflow{
-    overflow: hidden;
-}
-
 /*START CSS HEADER */
 
-    /*This is header*/
-header{
-    position: absolute;
-    display: inline-flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    top: 0;
+    /*Este es el encabezado*/
+header{ /*Estas propuedades se aplican al encabezado - header*/
+    position: absolute; /*Aplica una posicion absoluta al encabezado*/
+    display: inline-flex; /*Aplica un flexbox*/
+    flex-flow: row wrap; /*Abreviatura de flex-direction y flex-wrap*/
+    justify-content: space-between; /*Distribuye el espacio entre los elementos*/
+    top: 0; /*Determina la distancia entre el borde superior del elemento y el borde superior del bloque que lo contiene.*/
 
 }
 
     /*This is the image container for header*/
 header .imageContainer{
-    width: 30%;
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
+    display: flex; /*Aplica un flexbox*/
+    width: 28%; /*Determina la longitud del contenedor del logo del encabezado*/
+    align-items: center; /*Aplica un flexbox*/
+    justify-content: center; /*Controla la alineación de los elementos en que se encuentran dentro del contenedor del logo del encabezado*/
+    padding: 10px; /*Aplica un padding de 10px al contenedor*/
+    background-color: #fff; /*Determina el color de fondo del contenedor de la imagen*/
 }
 
     /*This is the logo of header*/
 header .imageContainer .logoEscuelaDidactica{
-    width: 100%;
-    height: 50%;
+    width: 90%; /*Determina la longitud del largo de la imagen*/
+    max-width: 350px; /*Determina la longitud del alto de la imagen*/
 }
 
     /*This is the text container for header*/
 header .textContainer{
-    width: 70%;
-    padding: 10px;
-    background-color: #e6f9f4;
+    width: 72%; /*Determina la longitud del largo del contenedor que agrupa el texto*/
+    padding: 10px; /*Aplica un padding de 10px al contenedor*/
+    background-color: #e6f9f4; /*Determina el color de fondo del contenedor del texto*/
 }
 
     /*This is the title of header*/
 header .textContainer .textContainer-title{
-    width: 100%;
-    font-size: 200%;
-    font-family: 'Arlon';
-    color: #5fa3a5;
+    width: 100%; /*Determina la longitud del largo del div que abarca el titulo*/
+    font-size: 200%; /*Aplica un tamaño de fuente al div que abarca el titulo*/
+    font-family: 'Arlon'; /*Aplica una fuente al div que abarca el titulo*/
+    color: #5fa3a5; /*Determina el color que tendran los elementos del div que abarca el titulo*/
 }
 
     /*This is the paragraph of header*/
 header .textContainer .textContainer-paragraph{
-    width: 100%;
+    color: #161b1c;
+    width: 100%; /*Determina la longitud del largo del div que abarca el parrafo*/
+    font-size: 25px; /*Aplica un tamaño de fuente al div que abarca el parrafo*/
+    line-height: 37px; /*Aplica un interlineado al parrafo*/
 }
 
 /*END CSS HEADER */
@@ -67,47 +73,58 @@ header .textContainer .textContainer-paragraph{
 /*START CSS CARD CONTAINER */
 
     /*This is the middle space for cards and vertical logos*/
-.Container{
-    position: absolute;
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    margin-top: 150px;
+.Container{ /*Contenedor principal - abarxa los iconos laterales y el tablero de cartas*/
+    position: absolute; /*Aplica una posicion absoluta al contenedor principal*/
+    width: 100%; /*Determina la longitud del largo del div que abarca el main del documento - iconos laterales y tablero de cartas*/
+    display: flex; /*Aplica un flexbox*/
+    flex-flow: row wrap; /*Abreviatura de flex-direction y flex-wrap*/
+    justify-content: center; /*Controla la alineación de los elementos en que se encuentran dentro del contenedor del logo del encabezado*/
+    margin-top: 160px; /*Aplica un margen superior al contenedor principal con respecto a otro elemento*/
 
 }
 
     /*This is the icon container for vertical logos*/
-.Container .verticalIcons{
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    margin-top: 200px;
-    margin-left: -95%;
+.Container .verticalIcons{ /*Clase para la barra de iconos laterales*/
+    display: flex; /*Aplica un flexbox*/
+    flex-direction: column; /*Determina la direccion del flexbox en los iconos laterales*/
+    position: fixed; /*Fija la posicion de la barra de iconos laterales*/
+    margin-top: 200px; /*Aplica un margen superior al contenedor de la barra de iconos laterales con respecto a otro elemento*/
+    margin-left: -97%;  /*Aplica un margen izquierdo al contenedor de la barra de iconos laterales con respecto a otro elemento*/
+}
+
+.Container .verticalIcons a{ /*Clase que modifica de cada uno de los iconos laterales*/
+    opacity: 0.5; /*Aplica una opacidad media a cada uno de los iconos laterales*/
+}
+
+/*This is the icon container for vertical logos*/
+.Container .verticalIcons a:hover{ /*Clase que modifica de cada uno de los iconos laterales cuando el cursor se encuentra sobre los iconos*/
+    opacity: 1; /*Quita la opacidad al icono que se encuentra debajo del cursor*/
 }
 
 /*This is the card container for cards*/
-.Container .cardContainer{
-    width: 780px;
-    display: inline-flex;
-    flex-flow: row wrap;
-    margin-left: 6%;
-    position: relative;
+.Container .cardContainer{ /*Div que abarca el tablero sobre el cual se distribuyen las cartas*/
+    width: 780px; /*Determina la longitud del largo del div que abarca unicamente a las cartas*/
+    display: inline-flex; /*Aplica un flexbox al div que contiene unicamente a las cartas*/
+    flex-flow: row wrap; /*Abreviatura de flex-direction y flex-wrap*/
+    margin-left: 6%; /*Aplica un margen izquierdo unicamente al contenedor que contiene las cartas con respecto a otro elemento*/
+    padding-top: 20vh; /*Aplica un padding superior al div que abarca a las cartas con respecto a su margen*/
+    padding-bottom: 20vh; /*Aplica un padding inferior al div que abarca a las cartas con respecto a su margen*/
+    position: relative; /*Aplica una posicion relativa unicamente al contenedor de las cartas*/
 }
 
     /*This is contanier for cards*/
-.Container .cardContainer .grandpaContainer{
-    width: 170px;
-    height: 25%;
-    perspective: 1000px;
+.Container .cardContainer .grandpaContainer{ /*Div que abarca el area de cada carta*/
+    width: 170px; /*Determina la longitud del largo del div que abarca el area de cada carta*/
+    height: 25%; /*Determina la longitud del alto del div que abarca el area de cada carta*/
+    perspective: 1000px; /*Es la perspectiva desde la que se vería el espectador si la interfaz bidimensional fuera tridimensional*/
 }
 
     /*That contains transitions of cards*/
-.Container .cardContainer .grandpaContainer .parentContainer{
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-    transform-style: preserve-3d;
+.Container .cardContainer .grandpaContainer .parentContainer{ /*Div que abarca la cara superior y trasera de cada carta*/
+    width: 100%; /*Determina la longitud del largo del div que abarca la cara superior y trasera de cada carta*/
+    height: 100%; /*Determina la longitud del alto del div que abarca la cara superior y trasera de cada carta*/
+    transition: transform 0.5s ease-in-out; /*Aplica una transicion a la carta*/
+    transform-style: preserve-3d; /*Propiedad que se establece para que los elementos hijos se ubiquen de manera 3D*/
 }
 
     /*This is the back-card*/
@@ -165,7 +182,8 @@ header .textContainer .textContainer-paragraph{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 40vw;
+    align-items: center;
+    left: 20vh;
 
 }
 
@@ -173,7 +191,7 @@ header .textContainer .textContainer-paragraph{
 .containerIntro .imageIntro{
     width: 1000px;
     position: absolute;
-    animation: rebound 1.5s 0s forwards ease-in;
+    animation: rebound1 1.5s 0s forwards ease-in;
     visibility: hidden;
     opacity: 0;
     display: flex;
@@ -194,7 +212,7 @@ header .textContainer .textContainer-paragraph{
     position: relative;
     width: 500px;
     height: 50px;
-    animation: rebound-button 1.5s 0s forwards ease-in;
+    animation: rebound-button1 1.5s 0s forwards ease-in;
     visibility: hidden;
     opacity: 0;
 }
@@ -214,21 +232,21 @@ header .textContainer .textContainer-paragraph{
     transition-duration: 0.5s;
 }
 
-    /*Action for button*/
+    /*Propiedades para cuando el cursor esta sobre el boton de 'empezar'*/
 .containerIntro .buttonIntro .beginButton:hover{
     transform: translateY(5px);
     box-shadow: 1px 3px 0 0 #d77c0e;
     cursor: pointer;
 }
 
-/*END CSS MODAL INTRODUCTION*/
+/*Fin CSS del modal de introduccion*/
 
-/*START CSS MODAL PESEBRE*/
+/*Inicio CSS para el modal del rompecabezas*/
 
-    /*This is background modal*/
+    /*Propiedades para el background de los modales*/
 .grandpaContainerPop{
     position: absolute;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: rgba(1, 0, 0, 0.5);
     display: flex;
@@ -237,11 +255,7 @@ header .textContainer .textContainer-paragraph{
     z-index: 5;
 }
 
-.grandpaHidden{
-    display: none; /*-------------------------------------------------------------------------*/
-}
-
-    /*This is puzzle container*/
+    /*Este es el contenedor del modal del rompecabezas que es visible cuando una pareja es descubierta*/
 .grandpaContainerPop .containerPop{
     position: absolute;
     height: 400px;
@@ -376,84 +390,68 @@ header .textContainer .textContainer-paragraph{
     border-radius: 20px 0 0 20px;
 }
 
-    /*This is baltazar cover*/
+    /*Esta es la cobertura de la figura de baltazar*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-baltazar{
     height: 220px;
     width: 100px;
     left: 130px;
     top: 50px;
-    transition-property: top;
-    transition-duration: 5s;
 }
 
-    /*This is melchor cover*/
+    /*Esta es la cobertura de la figura de melchor*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-melchor{
     height: 200px;
     width: 160px;
     left: 245px;
     top: 150px;
-    transition-property: top;
-    transition-duration: 5s;
 }
 
-    /*This is gaspar cover*/
+    /*Esta es la cobertura de la figura de gaspar*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-gaspar{
     height: 250px;
     width: 125px;
     left: 200px;
     top: 57px;
-    transition-property: top;
-    transition-duration: 5s;
 }
 
-    /*This is maria cover*/
+    /*Esta es la cobertura de la figura de maria*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-maria{
     bottom: 0;
     height: 210px;
     width: 150px;
-    transition-property: top;
-    transition-duration: 5s;
 }
 
-    /*This is jose cover*/
+    /*Esta es la cobertura de la figura de jose*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-jose{
     height: 250px;
     width: 100px;
     bottom: 45px;
     left: 12px;
-    transition-property: top;
-    transition-duration: 5s;
 }
 
-    /*This is jesus cover*/
+    /*Esta es la cobertura de la figura de jesus*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-jesus{
     height: 120px;
     width: 115px;
     bottom: 5px;
     left: 135px;
-    transition-property: top;
-    transition-duration: 5s;
 }
 
-    /*This is mula cover*/
+    /*Esta es la cobertura de la figura de mula*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-mula{
     right: 0;
     bottom: 0;
     height: 225px;
     width: 105px;
     z-index: 1;
-    transition-property: top;
-    transition-duration: 5s;
 }
 
-    /*This is pastor cover*/
+    /*Esta es la cobertura de la figura de pastor*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-pastor{
     height: 255px;
     width: 115px;
     right: 50px;
     top: 75px;
-    transition-property: top;
-    transition-duration: 5s;
 }
 
     /*This is Animation vibration for image cover*/
@@ -509,18 +507,23 @@ header .textContainer .textContainer-paragraph{
 
 /*START CSS FOOTER */
 
-    /*This is footer*/
+    /*Propiedades para el footer*/
 footer{
-    background-color: #e6f9f4;
-    display: inline-flex;
-    flex-flow: row nowrap;
-    position: fixed;
     width: 100%;
-    bottom: 0;
-
+    padding: 7px 15px 7px;
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    background: #e6f9f4;
+    font-size: 16px;
+    box-shadow: 0 0px 4px hsl(0deg 0% 0% / 20%);
 }
 
-    /*This is text container left*/
+    /*Este es el contenedor de la frase ubicada a la izquierda del footer*/
 footer .phraseContainer{
     width: 65%;
 }
@@ -531,7 +534,7 @@ footer .phraseContainer .logoEscuelaDidactica{
     vertical-align: middle;
 }
 
-    /*This is the icon container on right*/
+    /*Este es el contenedor de los iconos ubicados a la derecha del footer*/
 footer .iconsContainer{
     width: 30%;
     display: inline-flex;
@@ -542,12 +545,12 @@ footer .iconsContainer{
 } 
 
 
-    /*This is text container for phrase 'Síguenos'*/
+    /*Este es el contenedor para la frase 'Síguenos'*/
 footer .iconsContainer .iconsContainer-text{
     margin-top: 5px;
 }
 
-    /*This is the button 'Contáctanos'*/
+    /*Propiedades para el boton 'Contáctanos'*/
 footer .iconsContainer .iconsContainer-button{
     border: 1px solid #79b5b5;
     height: 30%;
@@ -561,57 +564,115 @@ footer .iconsContainer .iconsContainer-button{
     padding: 1px;
 }
 
-    /*This is the icons container on right*/
+    /*Este es el contenedor de cada uno de los iconos ubicados a la derecha del footer*/
 footer .iconsContainer .iconsContainer-icons{
     width: 30px;
     height: 50px;
     margin-left: 5px;
 }
 
-    /*This is image for social media on footer right*/
+    /*Este es el contenedor de las imagenes de los iconos ubicados a la derecha del footer*/
 footer .iconsContainer .iconsContainer-icons .iconsContainer-icons-image{
     width: 30px;
     height: 25px;
     margin-top: 5px;
 }
 
-    /*Opacity of icons*/
+    /*Esta es la opacidad para cada uno de los iconos ubicados a la derecha del footer*/
 footer .iconsContainer a{
     opacity: 0.5;
 }
 
-    /*Actions for opacity*/
+    /*Esta es la opacidad para cada uno de los iconos ubicados a la derecha del footer cuando el cursor se encuentra sobre uno de los iconos*/
 footer .iconsContainer a:hover{
     opacity: 1;
 }
-    /*END CSS FOOTER */
+    /*Fin CSS footer*/
 
 
-    /*MODAL INTRO ANIMATION*/
+    /*Animaciones para el modal de introduccion*/
 
-@keyframes rebound-button{
+@keyframes rebound-button{ /*Animacion de caida para el boton 'comenzar' del modal de introduccion*/
     0%{
-        width: 510px;
+        width: 100vw;
         height: 60px;
     }
 
     20%{
+        width: 90vw;
+        height: 50px;
+    }
+
+    40%{
+        width: 100vw;
+        height: 60px;
+    }
+
+    60%{width: 90vw;
+        height: 50px;
+    }
+
+    80%{
+        width: 100vw;
+        height: 60px;
+    }
+
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes rebound{ /*Animacion de caida para la imagen del modal de introduccion*/
+    0%{
+        width: 100vw;
+    }
+
+    20%{
+        width: 90vw;
+    }
+
+    40%{
+        width: 100vw;
+    }
+
+    60%{
+        width: 90vw;
+    }
+
+    80%{
+        width: 100vw;
+    }
+
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes rebound-button1{ /*Animacion de caida para el boton 'comenzar' del modal de introduccion*/
+    0%{
         width: 500px;
         height: 50px;
     }
 
-    40%{
-        width: 510px;
-        height: 60px;
+    20%{
+        width: 480px;
+        height: 45px;
     }
 
-    60%{width: 500px;
+    40%{
+        width: 500px;
         height: 50px;
     }
 
+    60%{width: 480px;
+        height: 45px;
+    }
+
     80%{
-        width: 510px;
-        height: 60px;
+        width: 500px;
+        height: 50px;
     }
 
     100%{
@@ -620,25 +681,25 @@ footer .iconsContainer a:hover{
     }
 }
 
-@keyframes rebound{
+@keyframes rebound1{ /*Animacion de caida para la imagen del modal de introduccion*/
     0%{
-        width: 1050px;;
+        width: 1000px;
     }
 
     20%{
-        width: 1000px;;
+        width: 980px;
     }
 
     40%{
-        width: 1050px;;
+        width: 1000px;
     }
 
     60%{
-        width: 1000px;;
+        width: 980px;
     }
 
     80%{
-        width: 1050px;;
+        width: 1000px;
     }
 
     100%{
@@ -647,9 +708,9 @@ footer .iconsContainer a:hover{
     }
 }
 
-/*Animation for flakes*/
+    /*Animacion que realizan los copos de nieves ubicados en el modal que es visible cuando se encuentra una pareja de cartas*/
 
-@keyframes rotate{
+@keyframes rotate{ /*Animacion de rotacion de los copos de nieve del modal cuando se encuentra una pareja*/
     0%{
         transform: rotate(0deg);
     }
@@ -661,9 +722,9 @@ footer .iconsContainer a:hover{
     }
 }
 
-/*Animation for dicover pesebre*/
+    /*Animacion para descubrir una carta del rompecabezas del modal cuando se encuentra una pareja*/
 
-@keyframes vibration{
+@keyframes vibration{ /*Animacion de vibracion para las coberturas de las figuras al momento que van a caer*/
 
     10%{
         transform: rotate(10deg);
@@ -706,7 +767,7 @@ footer .iconsContainer a:hover{
     }
 }
 
-@keyframes fall{
+@keyframes fall{ /*Animacion de caida para la cobertura de las figuras al momento de ser encontrada una pareja*/
     0%{
         transform: translateY(0px);
     }
@@ -716,92 +777,91 @@ footer .iconsContainer a:hover{
     }
 }
 
-    /*Class for hidde the modal*/
-.hidden{
-    display: none;
-}
-
-@media (max-width: 750px){
+@media (max-width: 750px) { /*Reconfiguracion de propiedades para el responsive para un max-width: 750px*/
     /*This is the middle space for cards and vertical logos*/
 
-    body{
-        min-height: 125vh;
-        background-image: url('imagenes/estrellas-bg.png'), url('imagenes/background.png');
-        background-color: #f2d272;
-        background-size: auto 300px cover;
-        background-repeat: repeat-x, no-repeat;
-        display: flex;
-        flex-flow: column wrap;
-    }
+body{
+    min-height: 125vh;
+    background-image: url('imagenes/estrellas-bg.png'), url('imagenes/background.png');
+    background-color: #f2d272;
+    background-size: auto 300px cover;
+    background-repeat: repeat-x, no-repeat;
+    display: flex;
+    flex-flow: column wrap;
+}
 
-    header{
-        display: flex;
-        flex-flow: column ;
-        justify-content: space-between;
-        top: 0;
-    }
+header{
+    display: flex;
+    flex-flow: column ;
+    justify-content: space-between;
+    top: 0;
+}
 
-    header .imageContainer{
-        height: 40%;
-        width: 100%;
-        text-align: center;
-        padding: 20px;
-        background-color: #fff;
-    }
-    
-        /*This is the logo of header*/
-    header .imageContainer .logoEscuelaDidactica{
-        width: 50%;
-        height: 50%;
-    }
-    
-        /*This is the text container for header*/
-    header .textContainer{
-        width: 100%;
-        height: 60%;
-        padding: 10px;
-        background-color: #e6f9f4;
-    }
-    
-        /*This is the title of header*/
-    header .textContainer .textContainer-title{
-        width: 100%;
-        font-size: 200%;
-        font-family: 'Arlon';
-        color: #5fa3a5;
-    }
+header .imageContainer{
+    height: 40%;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+}
 
-        /*This is the paragraph of header*/
+    /*Esta son las propiedades para imagen del logo del encabezado*/
+header .imageContainer .logoEscuelaDidactica{
+    width: 50%;
+    height: 50%;
+}
+
+    /*Esta son las propiedades para el texto ubicado en el encabezado*/
+header .textContainer{
+    width: 100%;
+    height: 60%;
+    padding: 10px;
+    background-color: #e6f9f4;
+}
+
+    /*Esta son las propiedades para el titulo ubicado en el contenedor de texto del encabezado*/
+header .textContainer .textContainer-title{
+    width: 100%;
+    font-size: 200%;
+    font-family: 'Arlon';
+    color: #5fa3a5;
+}
+
+    /*Esta son las propiedades para el parrafo ubicado en el contenedor de texto del encabezado*/
 header .textContainer .textContainer-paragraph{
     font-size: 80%;
     width: 100%;
+    font-size: 22px; /*Aplica un tamaño de fuente al div que abarca el parrafo*/
+    line-height: 33px; /*Aplica un interlineado al parrafo*/
 }
 
 
 /*------------------ middle zone ----------------------------*/
 
+    /*Esta son las propiedades para el contenedor principal que abarca la barra de iconos laterales y el tablero de cartas*/
 .Container{
     top: 200px;
-   width: 100%;
-   display: flex;
-   flex-flow: row wrap;
-   margin-top: 150px;
-   height: 60%;
-
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 150px;
+    height: 60%;
 }
 
-   /*This is the icon container for vertical logos*/
-   .Container .verticalIcons{
-       display: none;
-   }
+   /*Este es el contenedor para la barra de los iconos laterales*/
+.Container .verticalIcons{
+    display: none;
+}
 
-/*This is the card container for cards*/
+    /*Este es el contenedor para el tablero donde se distribuyen las cartas*/
 .Container .cardContainer{
     width: 100%;
-    display: inline-flex;
-    flex-flow: row wrap;
-    margin-left: 6%;
-    position: relative;
+    display: inline-flex; /*Aplica un flexbox al div que contiene unicamente a las cartas*/
+    flex-flow: row wrap; /*Abreviatura de flex-direction y flex-wrap*/
+    margin-left: 6%; /*Aplica un margen izquierdo unicamente al contenedor que contiene las cartas con respecto a otro elemento*/
+    padding-top: 20vh; /*Aplica un padding superior al div que abarca a las cartas con respecto a su margen*/
+    padding-bottom: 20vh; /*Aplica un padding inferior al div que abarca a las cartas con respecto a su margen*/
+    position: relative; /*Aplica una posicion relativa unicamente al contenedor de las cartas*/
 }
 
 .Container .cardContainer .grandpaContainer{
@@ -811,26 +871,26 @@ header .textContainer .textContainer-paragraph{
     perspective: 1000px;
 }
 
-    /*That contains transitions of cards*/
-    .Container .cardContainer .grandpaContainer .parentContainer{
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.5s ease-in-out;
-        transform-style: preserve-3d;
-    }
+    /*Contiene las propiedades de las transiciones de las cartas al momento de ser giradas*/
+.Container .cardContainer .grandpaContainer .parentContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    transform-style: preserve-3d;
+}
 
 
-    /*This is the back-card*/
-    .Container .cardContainer .grandpaContainer .parentContainer .child2{
-        position: absolute;
-        width: 100%;
-        height: 22vw;
-        margin-top: -107%;
-        transform: rotateY(180deg);
-    }
+    /*Este es el contenedor de la parte trasera de la carta*/
+.Container .cardContainer .grandpaContainer .parentContainer .child2{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: -107%;
+    transform: rotateY(180deg);
+}
 
-        /*This is the image of back-card*/
+    /*Propiedades para la imagen insertada en la parte trasera de cada carta*/
 .Container .cardContainer .grandpaContainer .parentContainer .child2 img{
     width: 100%;
     height: 100%;
@@ -849,28 +909,39 @@ footer{
     align-items: center;
 }
 
-    /*This is text container left*/
+    /*Este es el contenedor del texto ubicado a la izquierda del footer*/
 footer .phraseContainer{
     display: none;
 }
 
-
+    /*Este es el contenedor de los iconos ubicados a la derecha del footer*/
 footer .iconsContainer{
     width: 100%;
     display: flex;
     justify-content: center;
     text-align: center;
-    float: left;
+    float: right;
     position: absolute;
 } 
+}
 
+@media (max-width: 850px){ /*Reconfiguracion de propiedades para el responsive para un max-width: 850px*/
+
+.containerIntro{ /*Div del modal que es visible al momento de encontrar una pareja*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 20vw;
 
 }
 
-@media (max-width: 850px){
-       /*This is image container*/
+    /*Este es el contenedor de la imagen del modal de introduccion*/
 .containerIntro .imageIntro{
-
     width: 100vw;
     position: absolute;
     animation: rebound 1.5s 0s forwards ease-in;
@@ -881,19 +952,19 @@ footer .iconsContainer{
     flex-direction: column;
 }
 
-    /*This is button container*/
-    .containerIntro .imageIntro .buttonIntro{
-        margin-left: 13%;
-        position: relative;
-        width: 100vw;
-        height: 5vh;
-        animation: rebound-button 1.5s 0s forwards ease-in;
-        visibility: hidden;
-        opacity: 0;
+    /*Este es el contenedor del boton 'empezar' del modal de introduccion*/
+.containerIntro .imageIntro .buttonIntro{
+    margin-left: 13%;
+    position: relative;
+    width: 100vw;
+    height: 5vh;
+    animation: rebound-button 1.5s 0s forwards ease-in;
+    visibility: hidden;
+    opacity: 0;
 
-    }
+}
 
-        /*This is button for modal*/
+    /*Estas son las propiedades para el boton ubicado en el modal de introduccion*/
 .containerIntro .buttonIntro .beginButton{
     width: 25%;
     height: 100%;
@@ -909,11 +980,11 @@ footer .iconsContainer{
 }
 }
 
-@media (max-width: 920px){
+@media (max-width: 920px){ /*Reconfiguracion de propiedades para el responsive para un max-width: 920px*/
 
 
-        /*This is puzzle container*/
-.grandpaContainerPop .containerPop{
+        /*Este es el contenedor del rompecabezas del modalr*/
+.grandpaContainerPop .containerPop{ /*Div del modal que es visible al momento de encontrar una pareja*/
     position: absolute;
     height: 600px;
     width: 400px;
@@ -925,22 +996,20 @@ footer .iconsContainer{
 
 }
 
-    /*This is container pesebre image and text*/
-    .grandpaContainerPop .containerPop .containerPuzzle{
-        width: 100%;
-        height: 100%;
-        border-radius: 20px;
-        background-color: #e6ce76;
-        background-image: url('imagenes/estrellas.png');
-        background-size: cover;
-        border: 5px solid #e6ce76;
-        display: flex;
-        flex-flow: column;
-        overflow: clip;
-        overflow-clip-margin: 10px;
-    }
+    /*Este es el contenedor de la imagen del pesebre y el texto*/
+.grandpaContainerPop .containerPop .containerPuzzle{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #e6ce76;
+    background-image: url('imagenes/estrellas.png');
+    background-size: cover;
+    border: 5px solid #e6ce76;
+    display: flex;
+    flex-flow: column;
+}
 
-        /*This is container text*/
+    /*Este es el contenedor unicamente del texto*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerText{
     width: 100%;
     height: 100%;
@@ -949,112 +1018,167 @@ footer .iconsContainer{
 }
 
 
-        /*This is the container image*/
+    /*Este es el contenedor unicamente de la imagen*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage{
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: clip;
+    overflow-clip-margin: 1px;
 }
 
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage img{
     position: absolute;
 }
 
-    /*This is image*/
+    /*Estas son las propiedades para la imagen del pesebre*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .pesebre{
     width: 100%;
     height: 100%;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px 20px 20px 20px;
 }
 
-    /*This is baltazar cover*/
+    /*Esta es la cobertura de la figura de baltazar*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-baltazar{
-    height: 70%;
-    width: 20%;
-    transition-property: top;
-    transition-duration: 5s;
-    position: absolute;
+    height: 170px;
+    width: 70px;
+    left: 90px;
+    top: 41px;
 }
 
-    /*This is melchor cover*/
+    /*Esta es la cobertura de la figura de melchor*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-melchor{
-    height: 60%;
-    width: 35%;
-    bottom: -10px;
-    top: 100px;
-    transition-property: top;
-    transition-duration: 5s;
-}
-
-    /*This is gaspar cover*/
-.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-gaspar{
-    height: 250px;
+    height: 160px;
     width: 125px;
-    left: 200px;
-    top: 57px;
-    transition-property: top;
-    transition-duration: 5s;
+    left: 170px;
+    top: 115px;
 }
 
-    /*This is maria cover*/
+    /*Esta es la cobertura de la figura de gaspar*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-gaspar{
+    height: 200px;
+    width: 80px;
+    left: 150px;
+    top:43px;
+}
+
+    /*Esta es la cobertura de la figura de maria*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-maria{
-    bottom: 0;
-    height: 60%;
-    width: 30%;
-    transition-property: top;
-    transition-duration: 5s;
-}
-
-    /*This is jose cover*/
-.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-jose{
-    height: 70%;
-    width: 20%;
-    transition-property: top;
-    transition-duration: 5s;
-}
-
-    /*This is jesus cover*/
-.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-jesus{
-    height: 40%;
-    width: 20%;
-    transition-property: top;
-    transition-duration: 5s;
-}
-
-    /*This is mula cover*/
-.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-mula{
-    height: 225px;
+    height: 165px;
     width: 105px;
-    z-index: 100;
-    transition-property: top;
-    transition-duration: 5s;
 }
 
-    /*This is pastor cover*/
+    /*Esta es la cobertura de la figura de jose*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-jose{
+    height: 180px;
+    width: 70px;
+}
+
+    /*Esta es la cobertura de la figura de jesus*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-jesus{
+    height: 85px;
+    width: 100px;
+    left: 85px;
+    
+}
+
+    /*Esta es la cobertura de la figura de mula*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-mula{
+    height: 180px;
+    width: 90px;
+    bottom: 0;
+}
+
+    /*Esta es la cobertura de la figura de pastor*/
 .grandpaContainerPop .containerPop .containerPuzzle .containerImage .image-pastor{
-    height: 255px;
-    width: 115px;
-    right: 50px;
-    top: 75px;
-    transition-property: top;
-    transition-duration: 5s;
+    height: 220px;
+    width: 80px;
+    left: 255px;
+    top: 50px;
 }
 
-    /*This is button 'continuar'*/
-    .grandpaContainerPop .containerPop .containerPuzzle .containerText button{
-        width: 130px;
-        height: 35px;
-        font-size: 120%;
-        top: 250px;
-        left: 113px;
-        background-color: #ed921f;
-        border: 2px solid #ed921f;
-        border-radius: 20px;
-        box-shadow: 1px 7px 0 0 #d77c0e;
-        color: #fff;
-        font-weight: bold;
-        transition-property: transform, box-shadow;
-        transition-duration: 0.5s;
-        z-index: 5;
-    }
+.grandpaContainerPop .containerPop .containerPuzzle .containerText p{
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    top: 80px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+    /*Esta son las propiedades para el boton 'continuar' del modal que es visible cuando se encuentra una pareja*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText button{
+    width: 130px;
+    height: 35px;
+    font-size: 120%;
+    top: 247px;
+    left: 113px;
+    background-color: #ed921f;
+    border: 2px solid #ed921f;
+    border-radius: 20px;
+    box-shadow: 1px 4px 0 0 #d77c0e;
+    color: #fff;
+    font-weight: bold;
+    transition-property: transform, box-shadow;
+    transition-duration: 0.5s;
+}
+
+    /*Esta son las propiedades cuando el cursor se encuentra sobre el boton 'continuar' del modal que es visible cuando se encuentra una pareja*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText button:hover{
+    transform: translateY(2px);
+    box-shadow: 1px 1px 0 0 #d77c0e;
+    cursor: pointer;
+}
+
+.containerIconsGameOver .iconsGameOver{
+    width: 400px;
+    height: 80px;
+    position: absolute;
+    background-color: #07584e;
+    top: 578px;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding-left: 10px;
+}
+
+    /*Esta son las propiedades del copo de nieve ubicado a la izquierda*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText .containerDecoration .flake1{
+    width: 30px;
+    height: 30px;
+    top: 250px;
+    left: 10px;
+    animation: rotate 4s 0s ease-in-out infinite;
+}
+    
+    /*Esta son las propiedades del copo de nieve ubicado a la derecha*/
+.grandpaContainerPop .containerPop .containerPuzzle .containerText .containerDecoration .flake2{
+    width: 30px;
+    height: 30px;
+    top: 250px;
+    left: 310px;
+    animation: rotate 4s 0s ease-in-out infinite;
+}
+}
+
+    /*Clase para ocultar un modal*/
+.hidden{
+    display: none;
+}
+
+    /*Clase que bloquea el scroll*/
+.overflow{
+    overflow: hidden;
+}
+
+    /*Clase para ocultar el modal al que se le aplique esta clase*/
+.grandpaHidden{
+    display: none; 
+}
+
+    /*Modifica el titulo del modal final, cuando ya se descubren todas las parejas*/
+.center{
+    font-size: 20px;
+    font-weight: bold;
 }
