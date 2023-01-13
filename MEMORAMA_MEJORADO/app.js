@@ -26,17 +26,17 @@ let titleModal = document.querySelector('.grandpaContainerPop .containerPop .con
 let reload = false;
 
 // game memorama
-parentContainer.forEach((card)=>{
+parentContainer.forEach((card)=>{ 
   card.addEventListener('click',() =>{
-    if(block){
-      if(clickCount){
-        if(!card.classList.contains('pair')){
-          functionClick1(card);
+    if(block){   // se pregunta si block devuelve un true para saber si la carta ya fue elegida antes, ya que en el momento de seleccionar una carta se le a cambia el valor booleano a esta variable
+      if(clickCount){ //se usa de la misma manera que block
+        if(!card.classList.contains('pair')){ //se ptregunta si la carta contiene la clase pair, ya que cuando se encuentra una pareja esas cartas reciben la clase pair
+          functionClick1(card); //en caso de que no se haya abierto ya esa carta, se le permite seleccionarla
         }
-      }else if(!clickCount){
-          if(!card.classList.contains('click')){
-              if(!card.classList.contains('pair')){
-                functionClick2(card);
+      }else if(!clickCount){//en este caso es para el segundo click ya que el primero ya actuo
+          if(!card.classList.contains('click')){//se pregunta si tiene esta clase para saber si ya se le dio click
+              if(!card.classList.contains('pair')){//se pregunta para saber si ya no fue encontrada
+                functionClick2(card);//se llama a la funcion para dar el segundo click
                 setTimeout(() => {
                   if(firstClass == secondClass){
                     processComparing();
@@ -55,6 +55,7 @@ parentContainer.forEach((card)=>{
     }
   })
 })
+
 
 // Event for modal pesebre button
 buttonModalCover.addEventListener('click', () => {

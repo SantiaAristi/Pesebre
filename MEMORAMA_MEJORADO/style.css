@@ -825,7 +825,7 @@ header .textContainer .textContainer-paragraph{
     .Container .cardContainer .grandpaContainer .parentContainer .child2{
         position: absolute;
         width: 100%;
-        height: 100%;
+        height: 22vw;
         margin-top: -107%;
         transform: rotateY(180deg);
     }
